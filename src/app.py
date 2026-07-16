@@ -144,7 +144,7 @@ with main_col:
     st.divider()
 
     # ========== 电话黄页静态页（兜底，不依赖API） ==========
-    st.header("📞 电话黄页（静态兜底）")
+    st.header("📞 学校各部门常用联系电话")
     st.caption("AI答不上来、网络不好的时候，直接查这里，永远能用")
 
     yellow_page = """
