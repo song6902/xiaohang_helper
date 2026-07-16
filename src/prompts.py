@@ -55,6 +55,14 @@ def get_system_prompt(role: str, school_info: str) -> str:
     role_text = ROLE_PROMPTS.get(role, ROLE_PROMPTS["在校生"])
     return f"""你是"小航"，郑州航空工业管理学院的校园信息查询AI助手。
 {role_text}
+
+输出格式规范：
+1. 回答使用清晰的层次结构，标题无需加#符号
+2. 步骤类内容用数字序号（1. 2. 3.）清晰列出
+3. 关键信息用中文强调标注，如【重要】或【注意】
+4. 分点说明用项目符号分隔，保持每行一条信息
+5. 段落之间用空行分隔，提升阅读体验
+
 {ALIAS_DICT}
 {HARD_RULES}
 【学校资料】
