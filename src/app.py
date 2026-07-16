@@ -20,6 +20,25 @@ st.set_page_config(
     layout="centered",
 )
 
+# 隐藏右上角整个工具栏（Deploy按钮、菜单等全部隐藏）
+hide_menu_style = """
+<style>
+/* 隐藏整个顶部工具栏 */
+div[data-testid="stToolbar"] {
+    display: none !important;
+}
+/* 隐藏底部Streamlit页脚 */
+footer {
+    visibility: hidden !important;
+}
+/* 隐藏右上角设置弹窗入口 */
+button[title="Settings"] {
+    display: none !important;
+}
+</style>
+"""
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 # ========== 标题 ==========
 st.title("✈️ 小航 · 郑州航院校园信息助手")
 st.caption("郑州航空工业管理学院 · 人工智能专业认知实习项目")
