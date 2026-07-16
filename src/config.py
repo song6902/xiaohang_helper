@@ -5,7 +5,7 @@
 # 硅基流动API配置
 API_URL = "https://api.siliconflow.cn/v1/chat/completions"
 API_KEY = "sk-zsqfhguyckidiqwzvcayrtoylpmjqjknqqkmxlmcbkmiukam"  # 替换成你自己的硅基流动的API Key
-MODEL_NAME = "deepseek-ai/DeepSeek-V4-Flash"
+MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
 
 # 请求头
 HEADERS = {
@@ -14,7 +14,7 @@ HEADERS = {
 }
 
 # 请求超时时间（秒）
-REQUEST_TIMEOUT = 30
+REQUEST_TIMEOUT = 40
 
 # 12个推荐问题，按身份分组
 PRESET_QUESTIONS = {
