@@ -39,9 +39,13 @@ button[title="Settings"] {
 """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-# ========== 初始化历史对话（只做展示，不影响回答） ==========
+# ========== 初始化：历史对话 + 资料缓存（页面加载只读一次，不用每次提问都读文件） ==========
 if "history" not in st.session_state:
     st.session_state.history = []
+
+if "school_info" not in st.session_state:
+    # 页面打开时一次性加载所有校园资料，缓存起来
+    st.session_state.school_info = load_school_info()
 
 # ========== 主体两列：左侧历史对话，右侧主内容（直接显示，不用找侧边栏） ==========
 history_col, _, main_col, _ = st.columns([1, 0.2, 3, 0.2])
@@ -110,8 +114,8 @@ with main_col:
             st.warning("⚠️ 数据文件缺失，请确认data/目录下有4个Markdown资料文件")
         else:
             with st.spinner("小航正在思考..."):
-                # 加载学校资料，组装Prompt
-                school_info = load_school_info()
+                # 直接用缓存的资料，不用每次重读文件
+                school_info = st.session_state.school_info
                 system_prompt = get_system_prompt(role, school_info)
                 # 调用API（单轮问答，不传历史，100%稳定）
                 answer = ask_ai(system_prompt, question)
