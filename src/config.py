@@ -14,7 +14,7 @@ HEADERS = {
 }
 
 # 请求超时时间（秒）
-REQUEST_TIMEOUT = 40
+REQUEST_TIMEOUT = 25
 
 # 12个推荐问题，按身份分组
 PRESET_QUESTIONS = {
